@@ -1,3 +1,16 @@
+************************* WHERE I CURRENTLY AM *************************
+I have...
+  - made a very simple nav bar and can hook it up to app/main.jsx
+  - made a very simple component to render all the campuses (with dummy data) and can hook it up to app/main.jsx
+
+Next steps...
+  - make simple component to render all student (with dummy data) and hook it up to app/main.jsx
+  - play with styling
+  - make containers for all dumb components
+  - make routes to each component
+
+******************** START OF INSTRUCTIONS FROM DAN ********************
+
 # Senior Enrichment Project
 
 Make a thing!

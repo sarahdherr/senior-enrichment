@@ -1,0 +1,260 @@
+/* COLOR SCHEME [#38-Stormy Hues from `https://designschool.canva.com/blog/website-color-schemes/`]
+Stormy(grey/blue): #494E6B;
+Cloud (tan): #98878F;
+Sunset (blush): #985E6D;
+Evening (navy): #192231;
+*/
+
+/* GENERAL STYLING */
+
+.campus-img {
+	width: 100%;
+	background-size: 'contains';
+}
+
+body {
+	padding-top: 50px;
+	background-color: #98878F;
+}
+
+.page-title {
+	text-align: center;
+	text-decoration: underline;
+}
+
+/* HOME PAGE STYLING */
+
+.home {
+	margin-top: 5%;
+}
+
+.home-title {
+	text-align: center;
+	color: #192231;
+	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+}
+
+.margaret-imgs {
+	margin-top: 5%;
+	width: 80vw;
+	margin-left: 10vw;
+}
+
+.margaret-img {
+	width: 100%;
+}
+
+.margaret-info {
+	margin: 3%;
+	text-align: center;
+	color: #192231;
+}
+
+/* NAVBAR STYLING */
+
+#brandname {
+	width: 250px;
+}
+
+.navbar {
+	margin-bottom: 2em;
+	padding-left: 5%;
+	padding-right: 5%;
+	background-color: #192231;
+	
+}
+
+#mainnav {
+	height: 50px;
+	margin-left: calc(100vw-250px);
+}
+
+#mainnav ul {
+	float: right;
+
+}
+
+/* CAMPUSES STYLING */
+
+.campus-card {
+	background-color: #985E6D;
+	margin: 3%;
+	padding-left: 4%;
+	padding: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.campuses {
+	margin-left: 6%;
+	margin-right: 2%;
+}
+
+.campus {
+	margin-left: 6%;
+	margin-right: 6%; 
+}
+
+/* CAMPUS STYLING */
+
+.single-campus-info {
+	padding-top: 3%;
+}
+
+.single-campus-img {
+	background-color: #985E6D;
+	margin-left: 10%;
+	width: 20vw;
+	padding: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	float: left;
+}
+
+.single-campus-text {
+	padding-left: 35vw;
+}
+
+.students {
+	display: block;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.student-img {
+	width: 100%;
+	background-size: 'contains';
+}
+
+.student-card {
+	background-color: #494E6B;
+	color: white;
+	margin: 3%;
+	padding-left: 4%;
+	padding: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.campus-student-title {
+	padding-top: 5%;
+	padding-left: 5%;
+	text-decoration: underline;
+}
+
+.students-buttons {
+	margin-top: 3%;
+	margin-left: 8%;
+}
+
+.search-button {
+	width: 4%;
+	height: 4%;
+	background-color: #985E6D;
+	border-radius: 10px;
+	float: left;
+	margin-right: 3%;
+}
+
+.search-img {
+	width: 100%;
+	height: 100%;
+	padding: 15%;
+}
+
+.add-student-button {
+	width: 4%;
+	height: 4%;
+	background-color: #985E6D;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.add-student-img {
+	width: 100%;
+	height: 100%;
+	padding: 15%;
+	opacity: 0.68;
+}
+
+.add-student-form {
+	width: 60vw;
+	margin-left: 90%;
+}
+
+.add-student-submit {
+	display: block;
+	margin-top: 2%;
+	float: right;
+}
+
+.delete-campus {
+	/*float: right;*/
+	margin-top: 3%;
+	margin-left: 80%;
+	
+}
+
+.delete-campus .btn {
+	border-width: 0px;
+	background-color: #494E6B;
+	color: #98878F;
+}
+
+/* STUDENT VIEW */
+
+.single-student-info {
+	padding-top: 3%;
+}
+
+.single-student-img {
+	background-color: #494E6B;
+	margin-left: 25%;
+	width: 50vw;
+	padding: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.student-text-left {
+	width: 40vw;
+	margin-left: 10%;
+	margin-top: 5%;
+	float: left;
+}
+
+.student-text-right {
+	width: 40vw;
+	margin-right: 10%;
+	margin-top: 5%;
+	float: left;
+}
+
+.student-campus-img {
+	background-color: #985E6D;
+	margin-right: 10%;
+	margin-left: 2%;
+	width: 10vw;
+	padding: 3%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	float: right;
+}
+
+.delete-student {
+	/*float: right;*/
+	margin-top: -33%;
+	margin-bottom: 3%;
+	float: right;
+	margin-right: -24%;
+}
+
+.delete-student .btn {
+	border-width: 0px;
+	color: #985E6D;
+	background-color: transparent;
+	font-size: 2em;
+	color: #18bc9c;
+}
