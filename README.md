@@ -1,10 +1,10 @@
 NOTES FROM SARAH:
 
 - There is not a seed file, therefore I recommend making new campuses THEN new students to make sure navigation works.
-  -> Once a student is made, a campus cannot be assigned or re-assigned. Therefore, making students then the campuses will not work.
+  - Once a student is made, a campus cannot be assigned or re-assigned. Therefore, making students then the campuses will not work.
 
 - When deleting campuses, you must manually delete all students for that campus or you will run into trouble when trying to view those individual students afterwards. 
-  -> I tried to implement a beforeDestroy hook, but it caused errors.
+  - I tried to implement a beforeDestroy hook, but it caused errors.
 
 - I did not make the students and campuses editable from the front-end.
 
