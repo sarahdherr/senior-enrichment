@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react';
 
+// Home page is a page with some pictures and info about Margaret Hamilton
 const Home = (props) => {
 	return (
 		<div className='home'>

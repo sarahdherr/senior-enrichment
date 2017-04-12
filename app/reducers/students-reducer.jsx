@@ -20,6 +20,10 @@ export default function (state = initialStudentState, action) {
 			newState.campus = action.campus;
 			break;
 
+		default:
+			newState;
+			break;
+
 	}
 
 	return newState;

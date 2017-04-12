@@ -2,6 +2,7 @@ import React from 'react';
 
 const FilterInput = (props) => {
 
+  // sends text input to <StudentsContainer />
   const handleChange = props.handleChange;
   const inputValue = props.inputValue;
 

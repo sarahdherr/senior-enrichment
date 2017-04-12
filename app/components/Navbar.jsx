@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+// Navbar at top of page with links to home, campuses, and students view
 export default function Navbar () {
 	return (
 		

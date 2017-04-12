@@ -3,19 +3,14 @@ import axios from 'axios';
 
 import Students from './Students';
 
-
+// Styling for campus img on campus card. Whenever I move it to the style.css file, it breaks.
 const backgroundStyling = ({
 	width: '100%', height: '100%', backgroundSize: 'contains'
 })
 
-export default function Campus (props) {
+export default (props) => {
+	// passed from <CampusContainer />
 	const campus = props.selectedCampus;
-
-	function handleDeleteBtn(evt) {
-		const campusId = evt.target.value;
-		axios.delete(`/api/campuses/${campusId}`)
-			.then(() => hashHistory.push('/campuses'))
-	}
 
 	return (
 		<div className='campus'>

@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 
+// Styling for student img. Whenever I move it to the style.css file, it breaks.
 const backgroundStyling = ({
 	width: '100%', height: '100%', backgroundSize: 'contains'
 })
 
-const Students = (props) => {
+export default (props) => {
+	// passed from <StudentsContainer />
+	const students = props.students
+
+	// when delete button is clicked, the student id is passed to the <StudentsContainer />
 	function handleDeleteBtn(evt) {
 		props.handleDelete(evt.target.value);
 	}
@@ -14,7 +19,7 @@ const Students = (props) => {
  		<div className='students'>
  			<ul>
  			{
- 				props.students.map(student => 
+ 				students.map(student => 
  					<div className='col-xs-3 student-card' key={student.id}>
  						<div className="delete-student">
  							<button className="btn btn-default btn-sm" onClick={handleDeleteBtn} value={student.id}>x</button>
@@ -34,5 +39,3 @@ const Students = (props) => {
  		</div>
 	)
 }
-
-export default Students

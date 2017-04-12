@@ -1,7 +1,8 @@
 import React from 'react';
-import Campuses from './Campuses';
 import { connect } from 'react-redux';
-import AddCampus from './AddCampus';
+
+import Campuses from '../components/Campuses';
+import AddCampus from '../components/AddCampus';
 
 class CampusesContainer extends React.Component {
 	constructor(props) {
@@ -13,8 +14,8 @@ class CampusesContainer extends React.Component {
 		this.handleAddButton = this.handleAddButton.bind(this);
 	}
 
+	// function to toggle if the form is displayed based on clicking the add button
 	handleAddButton(evt) {
-		console.log(this.state)
 		this.setState({
 			addCampus: !this.state.addCampus
 		})
@@ -45,6 +46,7 @@ class CampusesContainer extends React.Component {
 	}
 }
 
+// Adds list of campuses to the <CampusesContainer /> props
 const mapStateToProps = (state) => {
 	return {
 		campuses: state.campuses.list

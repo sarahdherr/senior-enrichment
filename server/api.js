@@ -18,31 +18,29 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}))
 // finds all campuses
 api.get('/campuses', (req, res, next) => {
 	Campus.findAll()
-	.then(campuses => res.json(campuses))
-	.catch(next)
+		.then(campuses => res.json(campuses))
+		.catch(next)
 })
 
 // find campus by id
 api.get('/campuses/:campusId', (req, res, next) => {
 	Campus.findById(req.params.campusId)
-	.then(campus => res.json(campus))
-	.catch(next)
+		.then(campus => res.json(campus))
+		.catch(next)
 })
 
-
-// POST AND PUTS ARE NOT WORKING!
 // creates a new campus
 api.post('/campuses', (req, res, next) => {
 	Campus.create(req.body)
-	.then(campus => res.json(campus))
-	.catch(next)
+		.then(campus => res.json(campus))
+		.catch(next)
 })
 
-// updates a new campus
+// updates a campus
 api.put('/campuses/:campusId', (req, res, next) => {
 	Campus.update(
 		req.body,
-		{returning: true, where: {id: req.params.campusId}})
+		{ returning: true, where: { id: req.params.campusId } })
 		.then(function([_, [updatedCampus]]) {
 			if (!updatedCampus) {
 				res.sendStatus(404)
@@ -56,46 +54,46 @@ api.put('/campuses/:campusId', (req, res, next) => {
 // deletes a campus
 api.delete('/campuses/:campusId', (req, res, next) => {
 	Campus.findById(req.params.campusId)
-	.then(function(campus) {
-		if (!campus) {
-			res.sendStatus(404)
-		} else {
-			campus.destroy({ force: true })
-				.then(() => res.sendStatus(204))
-		}
-	})
-	.catch(next)
+		.then(function(campus) {
+			if (!campus) {
+				res.sendStatus(404)
+			} else {
+				campus.destroy({ force: true })
+					.then(() => res.sendStatus(204))
+			}
+		})
+		.catch(next)
 })
+
 
 // STUDENT ROUTES:
 
 // finds all students
 api.get('/students', (req, res, next) => {
 	Student.findAll()
-	.then(students => res.json(students))
-	.catch(next)
+		.then(students => res.json(students))
+		.catch(next)
 })
 
-// find student by id and includes campus
+// finds student by id 
 api.get('/students/:studentId', (req, res, next) => {
 	Student.findById(req.params.studentId)
-	.then(student => res.json(student))
-	.catch(next)
+		.then(student => res.json(student))
+		.catch(next)
 })
 
-// POST AND PUTS ARE NOT WORKING!
 // creates a new student
 api.post('/students', (req, res, next) => {
 	Student.create(req.body)
-	.then(student => res.json(student))
-	.catch(next)
+		.then(student => res.json(student))
+		.catch(next)
 })
 
-// updates a new student
+// updates a student
 api.put('/students/:studentId', (req, res, next) => {
 	Student.update(
 		req.body,
-		{returning: true, where: {id: req.params.studentId}})
+		{ returning: true, where: { id: req.params.studentId } })
 		.then(function([_, [updatedStudent]]) {
 			if (!updatedStudent) {
 				res.sendStatus(404)
@@ -108,15 +106,15 @@ api.put('/students/:studentId', (req, res, next) => {
 // deletes a student
 api.delete('/students/:studentId', (req, res, next) => {
 	Student.findById(req.params.studentId)
-	.then(function(student) {
-		if (!student) {
-			res.sendStatus(404)
-		} else {
-			student.destroy({ force: true })
-				.then(() => res.sendStatus(204))
-		}
-	})
-	.catch(next)
+		.then(function(student) {
+			if (!student) {
+				res.sendStatus(404)
+			} else {
+				student.destroy({ force: true })
+					.then(() => res.sendStatus(204))
+			}
+		})
+		.catch(next)
 })
 
 

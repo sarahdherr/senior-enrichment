@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
-import Student from './Student';
 
+import Student from '../components/Student';
+
+// Adds selected student and student's campus to the <Student /> props
 const mapStateToProps = (state) => {
 	return {
 		selectedStudent: state.students.selected,

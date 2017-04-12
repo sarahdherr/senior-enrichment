@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import {Link, hashHistory} from 'react-router';
+import React from 'react';
+import { Link } from 'react-router';
 import axios from 'axios';
 
+// Styling for student img on student card. Whenever I move it to the style.css file, it breaks.
 const backgroundStyling = ({
 	width: '100%', height: '100%', backgroundSize: 'contains'
 })
 
-export default function Student (props) {
+export default (props) => {
+	// passed from <StudentContainer />
 	const student = props.selectedStudent;
 	const campus = props.selectedCampus;
 

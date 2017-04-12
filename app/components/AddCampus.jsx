@@ -3,11 +3,11 @@ import axios from 'axios';
 
 import store from '../store';
 import { getCampuses } from '../action-creators/campuses';
-import { generateRandomPortal, generateRandomPlanet } from './DUMMY_DATA'; //TODO!!!!!!!
+import { generateRandomPortal, generateRandomPlanet } from '../utils';
 
 export default class AddCampus extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.state = {
 			name: '',
 			star: '',
@@ -17,7 +17,6 @@ export default class AddCampus extends React.Component {
 			portal: ''
 		}
 
-		// vv bind local functions here vv
 		this.handleName = this.handleName.bind(this);
 		this.handleStar = this.handleStar.bind(this);
 		this.handleEmail = this.handleEmail.bind(this);
@@ -25,6 +24,7 @@ export default class AddCampus extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	// saves inputed name to local state
 	handleName(evt) {
 		evt.preventDefault()
 		this.setState({
@@ -32,7 +32,7 @@ export default class AddCampus extends React.Component {
 		})
 	}
 
-	// more handle functions go here
+	// saves inputed star to local state
 	handleStar(evt) {
 		evt.preventDefault()
 		this.setState({
@@ -40,6 +40,7 @@ export default class AddCampus extends React.Component {
 		})
 	}
 
+	// saves inputed email to local state
 	handleEmail(evt) {
 		evt.preventDefault()
 		this.setState({
@@ -47,6 +48,7 @@ export default class AddCampus extends React.Component {
 		})
 	}
 
+	// saves inputed phone to local state
 	handlePhone(evt) {
 		evt.preventDefault()
 		this.setState({
@@ -54,13 +56,15 @@ export default class AddCampus extends React.Component {
 		})
 	}
 
+	// on submit, sends local state to db as new campus (through express route)
 	handleSubmit(evt) {
-		evt.preventDefault()
 		const campusObj = this.state;
 		
+		// adds random portal number and random planet img to campus object
 		campusObj.portal = generateRandomPortal();
 		campusObj.imgUrl = generateRandomPlanet();
 
+		// sends campus object to db as new campus and reloads page
 		axios.post(`/api/campuses`, campusObj)
 			.then(() => store.dispatch(getCampuses()))
 			.then(() => window.location.reload())
@@ -83,8 +87,7 @@ export default class AddCampus extends React.Component {
 		        <input onChange={this.handlePhone} className='form-control' placeholder="Campus phone" />
 		        
 		        <button className="btn add-student-submit" type="submit">Add Campus</button>
-		      </form>
+		    </form>
 		)
 	}
-
 }

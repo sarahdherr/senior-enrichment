@@ -1,43 +1,33 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router';
+import axios from 'axios';
+
+import FilterInput from '../components/FilterInput';
+import AddStudent from '../components/AddStudent';
+import Students from '../components/Students';
 
 import { addStudent, deleteStudent } from '../action-creators/students';
-
-import axios from 'axios';
-import { hashHistory } from 'react-router';
-
-import FilterInput from './FilterInput';
-import AddStudent from './AddStudent';
-import Students from './Students';
-
-const mapStateToProps = (state) => {
-  return {
-    students: state.students.list,
-    campuses: state.campuses.list
-  }
-}
 
 class StudentsContainer extends React.Component {
 
   constructor (props) {
     super(props);
+
+    // local states to toggle buttons and save search input value
     this.state = {
       search: false,
       inputValue: '',
-
-      addStudent: false,
-      name: '',
-      email: '',
-      enrolledIn: ''
+      addStudent: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleAddButton = this.handleAddButton.bind(this);
-    // this.submitStudent = this.submitStudent.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
+  // function to handle inputs in the search bar, updating the local state
   handleChange (evt) {
     const value = evt.target.value;
     this.setState({
@@ -45,6 +35,7 @@ class StudentsContainer extends React.Component {
     });
   }
 
+  // function to toggle if the search bar is displayed based on clicking the search button
   handleSearch (evt) {
     if (this.state.search) {
       this.setState({ search: false })
@@ -56,6 +47,7 @@ class StudentsContainer extends React.Component {
     }
   }
 
+  // function to toggle if the add form is displayed based on clicking the add button
   handleAddButton (evt) {
     if (this.state.addStudent) {
       this.setState({ addStudent: false })
@@ -67,20 +59,7 @@ class StudentsContainer extends React.Component {
     }
   }
 
-  // submitStudent(student) {
-  //   let nameAddOn;
-  //   if (student.name.split(' ').length !== 1) { 
-  //     nameAddOn = student.name.split(' ')[0].toLowerCase() 
-  //   } else { 
-  //     nameAddOn = student.name.toLowerCase()
-  //   }
-    
-  //   student.imgUrl = 'https://s-media-cache-ak0.pinimg.com/736x/e5/0a/a7/e50aa75ca28265b5cc69f92c055e6ee4.jpg';
-  //   student.github = 'github.com/' + nameAddOn;
-
-  //   addStudent(student)
-  // }
-
+  // If delete button is clicked, the delete express route is called and the page is reloaded
   handleDelete (studentId) {
     axios.delete(`/api/students/${studentId}`)
       .then(() => window.location.reload())
@@ -127,6 +106,14 @@ class StudentsContainer extends React.Component {
         </div>
       </div>
     );
+  }
+}
+
+// Adds list of students and list of campuses to the <StudentsContainer /> props
+const mapStateToProps = (state) => {
+  return {
+    students: state.students.list,
+    campuses: state.campuses.list
   }
 }
 

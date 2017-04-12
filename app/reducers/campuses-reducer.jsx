@@ -1,5 +1,6 @@
 import { RECEIVE_CAMPUSES, RECEIVE_CAMPUS } from '../constants';
 
+// inital state of selected campus, list of students for a selected campus, and list of all campuses
 const initialCampusState = {
 	selected: {},
 	filteredStudents: [],
@@ -18,6 +19,10 @@ export default function (state = initialCampusState, action) {
 		case RECEIVE_CAMPUS:
 			newState.selected = action.campus;
 			newState.filteredStudents = action.students;
+			break;
+
+		default:
+			newState;
 			break;
 
 	}

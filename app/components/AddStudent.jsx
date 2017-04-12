@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
 import store from '../store';
 import { getStudents } from '../action-creators/students';
-import { generateRandomKitty } from './DUMMY_DATA';
+import { generateRandomKitty } from '../utils';
 
-export default class AddStudent extends React.Component {
+export default class AddStudent extends Component {
 
   constructor(props) {
     super(props)
@@ -25,6 +25,7 @@ export default class AddStudent extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  // saves inputed name to local state
   handleName(evt) {
     evt.preventDefault()
     this.setState({
@@ -32,6 +33,7 @@ export default class AddStudent extends React.Component {
     })
   }
 
+  // saves inputed email to local state
   handleEmail(evt) {
     evt.preventDefault()
     this.setState({
@@ -39,6 +41,7 @@ export default class AddStudent extends React.Component {
     })
   }
 
+  // saves inputed phone to local state
   handlePhone(evt) {
     evt.preventDefault()
     this.setState({
@@ -46,6 +49,7 @@ export default class AddStudent extends React.Component {
     })
   }
 
+  // saves selected campus to local state as it's id
   handleCampus(evt) {
     evt.preventDefault()
     const campusKey = this.props.campuses.filter(campus => campus.name === evt.target.value )[0].id
@@ -54,6 +58,7 @@ export default class AddStudent extends React.Component {
     })
   }
 
+  // saves selected program to local state as first word (`Immersive` or `Part-time`)
   handleProgram(evt) {
     evt.preventDefault()
     this.setState({
@@ -61,18 +66,16 @@ export default class AddStudent extends React.Component {
     })
   }
 
+  // on submit, sends local state to db as new student (through express route)
   handleSubmit(evt) {
     const studentObj = this.state;
-    let nameAddOn;
-    if (studentObj.name.split(' ').length !== 1) { 
-      nameAddOn = studentObj.name.split(' ')[0].toLowerCase() 
-    } else { 
-      nameAddOn = studentObj.name.toLowerCase()
-    }
+    const nameAddOn = studentObj.name.split(' ')[0].toLowerCase() 
     
+    // adds github based on inputed name and random kitten img to student object 
     studentObj.imgUrl = generateRandomKitty();
     studentObj.github = 'github.com/' + nameAddOn;
 
+    // sends student object to db as new student and reloads page
     axios.post(`/api/students`, studentObj)
       .then(() => store.dispatch(getStudents()))
       .then(() => window.location.reload())

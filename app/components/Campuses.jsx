@@ -1,12 +1,17 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Link } from 'react-router';
+import axios from 'axios';
 
+// Styling for campus img. Whenever I move it to the style.css file, it breaks.
 const backgroundStyling = ({
 	width: '100%', height: '100%', backgroundSize: 'contains'
 })
 
-const Campuses = (props) => {
+export default (props) => {
+	// passed from <CampusesContainer />
+	const campuses = props.campuses
+
+	// when delete button is clicked, the campus is deleted from the db through the express route. Then reloads page
 	function handleDeleteBtn(evt) {
 		const campusId = evt.target.value;
 		axios.delete(`/api/campuses/${campusId}`)
@@ -17,7 +22,7 @@ const Campuses = (props) => {
 		<div className='campuses'>
 	 		<div className='row'>
 	 			{
-	 				props.campuses && props.campuses.map(campus => (
+	 				campuses && campuses.map(campus => (
 	 					<div className='col-xs-3 campus-card' key={campus.id}>
 		 					<div className="delete-student">
 	 							<button className="btn btn-default btn-sm" onClick={handleDeleteBtn} value={campus.id}>x</button>
@@ -36,5 +41,3 @@ const Campuses = (props) => {
 	 	</div>
 	)
 }
-
-export default Campuses

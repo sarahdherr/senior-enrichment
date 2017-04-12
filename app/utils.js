@@ -1,3 +1,7 @@
+// This file is for randomly generated data when making new campuses and students
+
+// GENERATING STUDENT.IMGURL:
+// Array of kitten pictures
 const kitties = [
 	"http://weknowyourdreams.com/images/kitten/kitten-07.jpg",
 	"https://s-media-cache-ak0.pinimg.com/736x/b5/f6/fa/b5f6faebcc4a5fadd7888033e2a68639.jpg",
@@ -23,11 +27,16 @@ const kitties = [
 	"https://ichef-1.bbci.co.uk/news/624/cpsprodpb/579D/production/_89292422_bellini2.png"
 ];
 
+// Function to generate a random kitten picture from above array
 export function generateRandomKitty() {
 	return kitties[Math.floor(Math.random() * kitties.length)]
 }
 
+// GENERATING CAMPUS.PORTAL:
+// Array of the ten digits
 const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Function to generate a number sequence with the length of `num`
 function generateNumSequence(num) {
 	var result = "";
 	for (var i = 0; i < num; i++) {
@@ -35,7 +44,9 @@ function generateNumSequence(num) {
 	}
 	return result;
 }
-// TODO
+
+// Function to generate a number sequence of 4_digits-4_digits-2_digits
+// This is completely made up (places don't have portals yet), but I thought it was a fun made up property to give a campus 
 export function generateRandomPortal() {
 	var final = [];
 	final.push(generateNumSequence(4))
@@ -45,6 +56,8 @@ export function generateRandomPortal() {
 	return final.join('-')
 }
 
+// GENERATING CAMPUS.IMGURL:
+// Array of planet pictures
 const planets = [
 	"http://vignette1.wikia.nocookie.net/clubpenguin/images/a/a9/Beta_Team_Solar_System_Game_Over_Planet.png/revision/latest?cb=20130108130216",
 	"http://images.clipartpanda.com/planet-clip-art-venus.png",
@@ -63,6 +76,7 @@ const planets = [
 	"http://pre15.deviantart.net/4655/th/pre/i/2010/266/c/4/planet_neptune_png_by_ravenmaddartwork-d2zaxdm.png"
 ];
 
+// Function to generate a random planet picture from above array
 export function generateRandomPlanet() {
 	return planets[Math.floor(Math.random() * planets.length)]
 }
